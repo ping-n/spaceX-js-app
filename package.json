@@ -7,5 +7,8 @@
   "dependencies": {
     "node-fetch": "^2.6.0",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0"
   }
 }
