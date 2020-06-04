@@ -21,7 +21,7 @@ const app = async () => {
         start = false
         break;
       case 1:
-        console.log(roadsterData)
+        Display.roadster(roadsterData)
         break
       case 2:
         futureLaunches();
