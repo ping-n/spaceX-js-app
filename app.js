@@ -7,7 +7,7 @@ const app = async () => {
   let start = true
 
   while (start) {
-    Display.menu(user.name);
+    Display.menu;
     const choice = Display.getOption();
 
     switch (choice) {
@@ -29,3 +29,5 @@ const app = async () => {
     }
   }
 }
+
+app()
