@@ -12,6 +12,10 @@ class Display {
   static getOption() {
     return readlineSync.questionInt('> ');
   }
+
+  static getFlightNum() {
+    return readlineSync.question('flight number: ');
+  }
 }
 
 module.exports = {
