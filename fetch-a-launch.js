@@ -21,7 +21,7 @@ const getLaunch = async(flightNum) => {
     const data  = await response.json();
     console.log(flight(data));
   } catch(err) {
-    console.log(err)
+    console.error(err.message)
   }
 }
 
@@ -33,7 +33,7 @@ const futureLaunches = async() => {
     data.forEach((launch) => {
     console.log(flight(launch))});
   } catch(err) {
-    console.log(err)
+    console.error(err.message)
   }
 }
 
