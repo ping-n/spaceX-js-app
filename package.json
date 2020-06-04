@@ -1,0 +1,7 @@
+{
+  "name": "spacex",
+  "version": "1.0.0",
+  "description": "space-api",
+  "main": "index.js",
+  "license": "MIT"
+}
