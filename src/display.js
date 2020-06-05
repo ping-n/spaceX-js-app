@@ -37,9 +37,9 @@ class Display {
     return readlineSync.question(chalk.hex('#6495ed').bold('flight number: '));
   }
   static roadsterLaunch(data){
-    console.log(chalk.bold.whiteBright("Name: ") + chalk.blueBright(data.name));
+    console.log(chalk.bold.whiteBright("Name: ") + chalk.hex('#6495ed').bold(data.name));
     console.log(chalk.bold.whiteBright("Launch Date: ") + chalk.yellowBright(data.launch_date_utc.slice(0, 16)));
-    console.log(chalk.bold.whiteBright("Launch Mass: ") + chalk.greenBright(data.launch_mass_kg + "kg"));
+    console.log(chalk.bold.whiteBright("Launch Mass: ") + chalk.yellowBright(data.launch_mass_kg + "kg"));
     console.log(chalk.bold.whiteBright("Description: ") + chalk.greenBright(data.details));
   }
   static roadsterDistance(data){
