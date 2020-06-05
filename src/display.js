@@ -22,7 +22,13 @@ class Display {
       console.log(data);
     });
   }
-
+  static roadsterMenu() {
+    console.log(chalk.bold.greenBright('Please select from the following options:'));
+    console.log(chalk.cyan('0. Back to main menu'));
+    console.log(chalk.cyan('1. Launch info'));
+    console.log(chalk.cyan('2. Distance from planets'));
+    console.log(chalk.cyan('3. Speed of roadster'));
+  }
   static getOption() {
     return readlineSync.questionInt('> ');
   }
@@ -30,16 +36,19 @@ class Display {
   static getFlightNum() {
     return readlineSync.question('flight number: ');
   }
-
-  static roadster(data){
+  static roadsterLaunch(data){
     console.log(chalk.bold.greenBright("Name: ") + data.name);
     console.log(chalk.bold.greenBright("Launch Date: ") + data.launch_date_utc);
     console.log(chalk.bold.greenBright("Launch Mass: ") + data.launch_mass_kg + "kg");
-    console.log(chalk.bold.greenBright("Speed: ") + data.speed_kph.toFixed(0) + "kph");
+    console.log(chalk.bold.greenBright("Description: ") + data.details);
+  }
+  static roadsterDistance(data){
     console.log(chalk.bold.greenBright("Distance from Earth: ") + data.earth_distance_km.toFixed(0) + "km");
     console.log(chalk.bold.greenBright("Distance to Mar: ") + data.mars_distance_km.toFixed(0) + "km");
-    console.log(chalk.bold.greenBright("Description: ") + data.details);
-  };
+  }
+  static roadsterSpeed(data){
+    console.log(chalk.bold.greenBright("Speed: ") + data.speed_kph.toFixed(0) + "kph");
+  }
 
   static exit() {
     console.log(chalk.bold.greenBright('Thanks for using our App!'))
