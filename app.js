@@ -1,7 +1,7 @@
 const { Display } = require('./src/display');
 const { Roadster } = require('./src/roadster.js');
+const chalk = require('chalk');
 const fetchLaunches = require('./src/fetch-a-launch.js');
-const getLaunch = require('./src/fetch-a-launch.js');
 
 // require('./src/fetch-a-launch.js');
 // require('./src/fetch-a-launch.js');
@@ -50,7 +50,7 @@ const app = async () => {
             Display.roadsterSpeed(roadsterData);
             break;
           default:
-            console.log('Invalid Option');
+            console.log(chalk.bold.redBright('Invalid Option'));
         }
         break;
       case 2:
@@ -61,13 +61,19 @@ const app = async () => {
       case 3:
         const flightNum = Display.getFlightNum()
         const pastLaunch = await fetchLaunches.getLaunch(flightNum);
-        console.log(flight(pastLaunch));
+        if (pastLaunch == null) {
+          console.log(flight(pastLaunch));
+        }
         break;
       default:
-        console.log('Invalid Option');
+        console.log(chalk.bold.redBright('Invalid Option'));
     };
   }
 };
 
+try {
+  app();
+} catch (error) {
+  console.error(error.message)
+}
 
-app();

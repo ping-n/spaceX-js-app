@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const chalk = require('chalk');
 // const readlineSync = require('readline-sync');
 
 // const flight = (data) => ({
@@ -17,13 +18,13 @@ const getLaunch = async (flightNum) => {
     console.clear();
     const response = await fetch(`https://api.spacexdata.com/v3/launches/${flightNum}`);
     if (!response.ok) {
-        throw new Error(`Error with roadster response ${response.status}`);
+        throw new Error(chalk.bold.redBright('That flight number does not exist'));
       }
     const data = await response.json();
     return data;
-    // console.log(flight(data));
   } catch (err) {
     console.error(err.message)
+    return chalk.bold.redBright('Sorry something went wrong')
   }
 };
 
@@ -32,7 +33,7 @@ const futureLaunches = async () => {
     console.clear();
     const response = await fetch('https://api.spacexdata.com/v3/launches/upcoming');
     if (!response.ok) {
-        throw new Error(`Error with roadster response ${response.status}`);
+        throw new Error(chalk.bold.redBright('Sorry something went wrong'));
       }
     const data = await response.json();
     return data;
@@ -41,6 +42,7 @@ const futureLaunches = async () => {
     // });
   } catch (err) {
     console.error(err.message)
+    return chalk.bold.redBright('Sorry something went wrong')
   }
 };
 

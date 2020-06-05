@@ -30,7 +30,7 @@ class Display {
     console.log(chalk.cyan('3. Speed of roadster'));
   }
   static getOption() {
-    return readlineSync.questionInt('> ');
+    return readlineSync.questionInt(chalk.bold.greenBright('> '));
   }
 
   static getFlightNum() {
@@ -38,7 +38,7 @@ class Display {
   }
   static roadsterLaunch(data){
     console.log(chalk.bold.greenBright("Name: ") + data.name);
-    console.log(chalk.bold.greenBright("Launch Date: ") + data.launch_date_utc);
+    console.log(chalk.bold.greenBright("Launch Date: ") + data.launch_date_utc.slice(0, 16));
     console.log(chalk.bold.greenBright("Launch Mass: ") + data.launch_mass_kg + "kg");
     console.log(chalk.bold.greenBright("Description: ") + data.details);
   }
