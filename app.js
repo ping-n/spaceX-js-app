@@ -6,7 +6,6 @@ const getLaunch = require('./src/fetch-a-launch.js');
 
 
 const app = async () => {
-
   let start = true
   const request = new Roadster();
   const roadsterData = await request.getRoadsterData();
