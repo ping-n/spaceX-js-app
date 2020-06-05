@@ -9,7 +9,6 @@ const app = async () => {
   let start = true;
   const request = new Roadster();
   const roadsterData = await request.getRoadsterData();
-  
   while (start) {
     console.log(Display.header());
     Display.menu();
@@ -27,18 +26,17 @@ const app = async () => {
           case 0:
             Display.menu();
             break;
-
           case 1:
             Display.roadsterLaunch(roadsterData);
             break;
-
           case 2: 
             Display.roadsterDistance(roadsterData);
             break;
-
           case 3:
             Display.roadsterSpeed(roadsterData);
             break;
+          default:
+            console.log('Invalid Option');
         }
       case 2:
         futureLaunches();
@@ -49,8 +47,7 @@ const app = async () => {
         break;
       default:
         console.log('Invalid Option');
-    }
-
+    };
   }
 };
 
