@@ -8,16 +8,15 @@ class Roadster {
         throw new Error(`Error with roadster response ${response.status}`);
       }
       const data = await response.json();
-      // console.log(roadster(data));
-      return data
+      return data;
     } catch (error) {
       console.error(error.message);
-      return "Something went badly wrong";
+      return 'Something went badly wrong';
     }
-  };
+  }
 }
 
 
 module.exports = {
   Roadster,
-}
+};
