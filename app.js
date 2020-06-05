@@ -24,6 +24,7 @@ const app = async () => {
   const future = await fetchLaunches.futureLaunches();
 
   while (start) {
+    try {
     console.log(Display.header());
     Display.menu();
     const choice = Display.getOption();
@@ -61,13 +62,16 @@ const app = async () => {
       case 3:
         const flightNum = Display.getFlightNum()
         const pastLaunch = await fetchLaunches.getLaunch(flightNum);
-        if (pastLaunch == null) {
+        if (pastLaunch != null) {
           console.log(flight(pastLaunch));
         }
         break;
       default:
         console.log(chalk.bold.redBright('Invalid Option'));
     };
+    } catch (error) {
+    console.error(error.message)
+   }
   }
 };
 
