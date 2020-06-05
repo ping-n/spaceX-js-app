@@ -12,14 +12,14 @@ const app = async () => {
   const roadsterData = await request.getRoadsterData()
   
   const flight = (data) => ({
-  flight_number: data.flight_number,
-  mission_name: data.mission_name,
-  launch_date: data.launch_date_local.slice(0, 10),
-  rocket_name: data.rocket.rocket_name,
-  rocket_type: data.rocket.rocket_type,
-  launch_success: data.launch_success,
-  details: data.details,
-});
+    flight_number: data.flight_number,
+    mission_name: data.mission_name,
+    launch_date: data.launch_date_local.slice(0, 10),
+    rocket_name: data.rocket.rocket_name,
+    rocket_type: data.rocket.rocket_type,
+    launch_success: data.launch_success,
+    details: data.details,
+  });
 
   const future = await fetchLaunches.futureLaunches();
 
@@ -27,7 +27,7 @@ const app = async () => {
     console.log(Display.header());
     Display.menu();
     const choice = Display.getOption();
-    
+    console.clear();
     switch (choice) {
       case 0:
         Display.exit();
@@ -54,15 +54,12 @@ const app = async () => {
         }
         break;
       case 2:
-        // fetchLaunches.futureLaunches();
         future.forEach((launch) => {
           console.log(flight(launch));
         });
-        // console.log(future);
         break;
       case 3:
         const flightNum = Display.getFlightNum()
-        // console.log(fetchLaunches.getLaunch(flightNum));
         const pastLaunch = await fetchLaunches.getLaunch(flightNum);
         console.log(flight(pastLaunch));
         break;
@@ -71,5 +68,6 @@ const app = async () => {
     };
   }
 };
+
 
 app();
