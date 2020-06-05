@@ -55,6 +55,7 @@ const app = async () => {
             Display.roadsterSpeed(roadsterData);
             break;
         }
+        break;
       case 2:
         // fetchLaunches.futureLaunches();
         future.forEach((launch) => {
