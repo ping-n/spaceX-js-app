@@ -6,11 +6,10 @@ const getLaunch = require('./src/fetch-a-launch.js');
 // require('./src/fetch-a-launch.js');
 // require('./src/fetch-a-launch.js');
 
- 
 const app = async () => {
   let start = true;
   const request = new Roadster();
-  const roadsterData = await request.getRoadsterData();
+  const roadsterData = await request.getRoadsterData()
   
   const flight = (data) => ({
   flight_number: data.flight_number,
@@ -23,7 +22,6 @@ const app = async () => {
 });
 
   const future = await fetchLaunches.futureLaunches();
-  
 
   while (start) {
     console.log(Display.header());
@@ -42,18 +40,17 @@ const app = async () => {
           case 0:
             Display.menu();
             break;
-
           case 1:
             Display.roadsterLaunch(roadsterData);
             break;
-
           case 2: 
             Display.roadsterDistance(roadsterData);
             break;
-
           case 3:
             Display.roadsterSpeed(roadsterData);
             break;
+          default:
+            console.log('Invalid Option');
         }
         break;
       case 2:
@@ -71,8 +68,7 @@ const app = async () => {
         break;
       default:
         console.log('Invalid Option');
-    }
-
+    };
   }
 };
 
