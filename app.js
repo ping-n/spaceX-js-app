@@ -4,7 +4,7 @@ const futureLaunches = require('./src/fetch-a-launch.js');
 const getLaunch = require('./src/fetch-a-launch.js');
 
 
-
+ 
 const app = async () => {
 
   let start = true
@@ -14,15 +14,33 @@ const app = async () => {
   while (start) {
     Display.menu();
     const choice = Display.getOption();
-
+    
     switch (choice) {
       case 0:
         console.log('Thank you for using our App');
         start = false
         break;
       case 1:
-        Display.roadster(roadsterData)
-        break
+        Display.roadstermenu(roadsterData)
+        const choice2 = Display.getOption();
+        switch (choice2) {
+          case 0:
+            Display.menu();
+            break;
+
+          case 1:
+            Display.roadsterLaunch(roadsterData);
+            break;
+
+          case 2: 
+            Display.roadsterDistance(roadsterData);
+            break;
+
+          case 3:
+            Display.roadsterSpeed(roadsterData);
+            break;
+            
+        }
       case 2:
         futureLaunches();
         break;
@@ -33,6 +51,7 @@ const app = async () => {
       default:
         console.log('Invalid Option');
     }
+
   }
 }
 
